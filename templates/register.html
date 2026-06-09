@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+
+    <style>
+        .header{
+    background:#003366;
+    color:white;
+    text-align:center;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:25px;
+    box-shadow:0px 3px 10px rgba(0,0,0,0.2);
+    }
+
+    .header h1{
+    margin:0;
+    font-size:40px;
+    }
+        body{
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        form{
+    width:600px;
+    margin:auto;
+    padding:25px;
+    background:white;
+    border-radius:15px;
+    box-shadow:0px 4px 15px rgba(0,0,0,0.15);
+    }
+
+        input, select{
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+        }
+
+        button{
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: darkgreen;
+        }
+        .dashboard-btn{
+    background:#0d6efd;
+    color:white;
+    padding:12px 20px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.dashboard-btn:hover{
+    background:#0b5ed7;
+}
+body{
+    background:linear-gradient(
+        135deg,
+        #f5f7fa,
+        #dfe9f3
+    );
+    font-family:Arial,sans-serif;
+}
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+    <h1>Library Registration Form</h1>
+</div>
+
+    <form method="POST" enctype="multipart/form-data">
+
+        <label>Student Name</label>
+        <input type="text" name="name" required>
+
+        <label>Phone Number</label>
+        <input type="text" name="phone" required>
+
+        <label>Address</label>
+        <input type="text" name="address" required>
+
+        <label>Date of Admission</label>
+        <input type="date" name="join_date" required>
+
+        <label>Select Shift</label>
+        <select name="shift" required>
+            <option value="">Select Shift</option>
+            <option value="Morning">Morning</option>
+            <option value="Afternoon">Afternoon</option>
+            <option value="Evening">Evening</option>
+            <option value="Morning+Afternoon">Morning + Afternoon</option>
+            <option value="Afternoon+Evening">Afternoon + Evening</option>
+            <option value="Morning+Evening">Morning + Evening</option>
+            <option value="Full Day">All Shifts (Full Day)</option>
+        </select>
+
+        <label>Select Payment Mode</label>
+        <select name="payment_mode" required>
+            <option value="">Select Payment Mode</option>
+            <option value="Cash">Cash</option>
+            <option value="UPI">UPI</option>
+            <option value="Bank Transfer">Bank Transfer</option>
+        </select>
+        <label>Student Photo</label>
+
+    <input
+        type="file"
+        name="photo"
+        accept="image/*"
+        required>
+
+        <button type="submit">Register</button>
+
+    </form>
+
+    <br>
+
+    <div style="text-align:center; margin-top:20px;">
+
+    <a href="/" class="dashboard-btn">
+        🏠 Back to Dashboard
+    </a>
+
+</div>
+
+</body>
+</html>

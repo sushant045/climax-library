@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Successful</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#ffe5e5,#fff5f5);
+        }
+
+        .card{
+            background:white;
+            padding:40px;
+            width:450px;
+            border-radius:20px;
+            text-align:center;
+            box-shadow:0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .icon{
+            font-size:70px;
+            margin-bottom:15px;
+        }
+
+        h1{
+            color:#dc3545;
+            margin-bottom:15px;
+        }
+
+        p{
+            color:#666;
+            margin-bottom:25px;
+        }
+
+        .btn{
+            display:inline-block;
+            padding:12px 25px;
+            background:#dc3545;
+            color:white;
+            text-decoration:none;
+            border-radius:10px;
+            font-weight:bold;
+            transition:.3s;
+        }
+
+        .btn:hover{
+            background:#c82333;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+    <div class="icon">🗑️</div>
+
+    <h1>Student Deleted</h1>
+
+    <p>The student record has been removed successfully.</p>
+
+    <a href="/students" class="btn">
+        Back To Students
+    </a>
+</div>
+
+</body>
+</html>

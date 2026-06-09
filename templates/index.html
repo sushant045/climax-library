@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Library Dashboard</title>
+
+
+<style>
+    .library-title{
+    font-family: Algerian;
+    font-size: 48px;
+    text-align: center;
+    color: #003366;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+
+    body{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+
+    background: linear-gradient(
+        135deg,
+        #f8fafc,
+        #e2e8f0,
+        #cbd5e1
+    );
+}
+    h1{
+        text-align:center;
+        color:#003366;
+    }
+
+    h2{
+        text-align:center;
+        color:#444;
+    }
+
+    .top-container{
+        display:flex;
+        gap:20px;
+        justify-content:center;
+        align-items:flex-start;
+        margin-bottom:30px;
+        flex-wrap:wrap;
+    }
+
+    .section-box{
+        background:white;
+        padding:20px;
+        border-radius:10px;
+        box-shadow:0px 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .stats-container{
+        display:flex;
+        flex-wrap:wrap;
+        gap:15px;
+        justify-content:center;
+    }
+
+    .card{
+        width:180px;
+        padding:15px;
+        border-radius:10px;
+        background:#eaf2ff;
+        text-align:center;
+        box-shadow:0px 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .card h3{
+        margin:0;
+        color:#003366;
+    }
+
+    .card p{
+        font-size:28px;
+        font-weight:bold;
+        color:#000;
+    }
+
+    .occupied{
+        color:red;
+        font-weight:bold;
+    }
+
+    .vacant{
+        color:green;
+        font-weight:bold;
+    }
+
+    table{
+        width:100%;
+        border-collapse:collapse;
+        background:white;
+    }
+
+    th{
+        background:#003366;
+        color:white;
+        padding:10px;
+    }
+
+    td{
+        padding:8px;
+        text-align:center;
+        border:1px solid #ddd;
+    }
+
+    tr:nth-child(even){
+        background:#f2f2f2;
+    }
+
+    .nav{
+        text-align:center;
+        margin:20px 0;
+    }
+
+    .nav a{
+        text-decoration:none;
+        padding:10px 18px;
+        margin:5px;
+        color:white;
+        background:#007bff;
+        border-radius:5px;
+    }
+
+    .nav a:hover{
+        background:#0056b3;
+    }
+    .library-title{
+    font-family: Algerian;
+    font-size: 60px;
+    color: #003366;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.15);
+}
+
+.main-logo{
+    width: 140px;
+    height: auto;
+    margin-bottom: 10px;
+
+    transition: 0.3s;
+}
+
+.main-logo:hover{
+    transform: scale(1.05);
+}
+
+.dashboard-title{
+    font-size: 48px;
+    color: #003366;
+    margin-top: 5px;
+    margin-bottom: 25px;
+}
+
+.top-header{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:120px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.side-logo{
+    width:220px;
+    height:auto;
+}
+
+.library-title{
+    font-family: Algerian;
+    font-size:60px;
+    color:#003366;
+    text-align:center;
+    margin:0;
+}
+
+.dashboard-title{
+    font-size:48px;
+    color:#003366;
+    text-align:center;
+    margin-top:15px;
+    margin-bottom:0;
+}
+.admin-panel{
+    position:absolute;
+    top:20px;
+    right:30px;
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    font-weight:bold;
+}
+
+.logout-btn{
+    background:#dc3545;
+    color:white;
+    text-decoration:none;
+    padding:8px 14px;
+    border-radius:6px;
+}
+
+.logout-btn:hover{
+    background:#bb2d3b;
+}
+.facility-btn{
+    background:#6F42C1 !important;
+}
+body{
+    background: linear-gradient(
+        135deg,
+        #fff8e7,
+        #f3f4f6
+    );
+}
+</style>
+
+
+</head>
+
+<body>
+<div class="top-header">
+
+    <img
+        src="{{ url_for('static', filename='logo.png') }}"
+        class="side-logo">
+
+    <div>
+
+        <h1 class="library-title">
+            CLIMAX LIBRARY
+        </h1>
+
+        <h2 class="dashboard-title">
+            Dashboard
+        </h2>
+
+    </div>
+
+    <img
+        src="{{ url_for('static', filename='logo.png') }}"
+        class="side-logo">
+
+</div>
+      <div class="admin-panel">
+
+    <span>
+        👤 Admin: Sushant
+    </span>
+
+    <a href="/logout" class="logout-btn">
+        🚪 Logout
+    </a>
+    
+
+</div>
+
+</div>
+<div class="nav">
+
+
+<a href="/register">➕ Register Student</a>
+
+<a href="/students">👨‍🎓 Student List</a>
+
+<a href="/expired">⚠️ Expired Students</a>
+<a href="/facilities" class="facility-btn">
+    🏢 Facilities
+</a>
+
+
+
+
+</div>
+
+<div class="top-container">
+
+
+<div class="section-box">
+
+    <h2>Dashboard Statistics</h2>
+
+    <div class="stats-container">
+
+        <div class="card">
+            <h3>Total Students</h3>
+            <p>{{ total_students }}</p>
+        </div>
+
+        <div class="card">
+            <h3>Active Students</h3>
+            <p>{{ active_students }}</p>
+        </div>
+
+        <div class="card">
+            <h3>Expired Students</h3>
+            <p>{{ expired_students }}</p>
+        </div>
+
+        <div class="card">
+            <h3>Occupied Seats</h3>
+            <p>{{ occupied_seats }}</p>
+        </div>
+
+        <div class="card">
+            <h3>Vacant Seats</h3>
+            <p>{{ vacant_seats }}</p>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="section-box">
+
+    <h2>Library Seat Summary</h2>
+
+    <div class="stats-container">
+
+        <div class="card">
+            <h3>Morning</h3>
+
+            <div class="occupied">
+                Occupied: {{ morning_occupied }}
+            </div>
+
+            <div class="vacant">
+                Vacant: {{ 52 - morning_occupied }}
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Afternoon</h3>
+
+            <div class="occupied">
+                Occupied: {{ afternoon_occupied }}
+            </div>
+
+            <div class="vacant">
+                Vacant: {{ 52 - afternoon_occupied }}
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Evening</h3>
+
+            <div class="occupied">
+                Occupied: {{ evening_occupied }}
+            </div>
+
+            <div class="vacant">
+                Vacant: {{ 52 - evening_occupied }}
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+
+
+</body>
+</html>

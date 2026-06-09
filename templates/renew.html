@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Renew Membership</title>
+
+
+<style>
+
+    body{
+        font-family: Arial, sans-serif;
+        background:#f4f6f9;
+        padding:30px;
+    }
+
+    .card{
+        width:600px;
+        margin:auto;
+        background:white;
+        padding:25px;
+        border-radius:10px;
+        box-shadow:0px 0px 10px rgba(0,0,0,0.15);
+    }
+
+    h1{
+        text-align:center;
+        color:#003366;
+    }
+
+    label{
+        font-weight:bold;
+    }
+
+    select{
+        width:100%;
+        padding:10px;
+        margin-top:5px;
+        margin-bottom:20px;
+    }
+
+    button{
+        background:green;
+        color:white;
+        border:none;
+        padding:12px 25px;
+        border-radius:5px;
+        cursor:pointer;
+    }
+
+</style>
+
+
+</head>
+
+<body>
+
+<div class="card">
+
+
+<h1>Renew Membership</h1>
+
+<p><b>Roll Number:</b> {{ student['roll_no'] }}</p>
+
+<p><b>Name:</b> {{ student['name'] }}</p>
+
+<p><b>Current Shift:</b> {{ student['shift'] }}</p>
+
+<form method="POST">
+
+    <label>Select New Shift</label>
+
+    <select name="shift" required>
+
+        <option value="{{ student['shift'] }}">
+            Keep Same ({{ student['shift'] }})
+        </option>
+
+        <option value="Morning">Morning</option>
+        <option value="Afternoon">Afternoon</option>
+        <option value="Evening">Evening</option>
+        <option value="Morning+Afternoon">Morning + Afternoon</option>
+        <option value="Afternoon+Evening">Afternoon + Evening</option>
+        <option value="Morning+Evening">Morning + Evening</option>
+        <option value="Full Day">Full Day</option>
+
+    </select>
+
+    <label>Payment Mode</label>
+
+    <select name="payment_mode" required>
+
+        <option value="Cash">Cash</option>
+        <option value="UPI">UPI</option>
+        <option value="Bank Transfer">Bank Transfer</option>
+
+    </select>
+
+    <button type="submit">
+        Renew Membership
+    </button>
+
+</form>
+
+
+</div>
+
+</body>
+</html>

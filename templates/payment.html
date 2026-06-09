@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Record Payment</title>
+
+<style>
+
+body{
+    font-family:Arial;
+    background:#f4f6f9;
+    padding:20px;
+}
+
+.card{
+    width:500px;
+    margin:auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0px 2px 8px rgba(0,0,0,0.2);
+}
+
+h1{
+    text-align:center;
+    color:#003366;
+}
+
+button{
+    background:green;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>Record Payment</h1>
+
+<p>
+<b>Roll Number:</b>
+{{ student['roll_no'] }}
+</p>
+
+<p>
+<b>Name:</b>
+{{ student['name'] }}
+</p>
+
+<p>
+<b>Monthly Fee:</b>
+₹{{ student['fee'] }}
+</p>
+
+<form method="POST">
+
+<label>
+<input type="radio"
+       name="payment_mode"
+       value="Cash"
+       required>
+Cash
+</label>
+
+<br><br>
+
+<label>
+<input type="radio"
+       name="payment_mode"
+       value="UPI">
+UPI
+</label>
+
+<br><br>
+
+<label>
+<input type="radio"
+       name="payment_mode"
+       value="Bank Transfer">
+Bank Transfer
+</label>
+
+<br><br>
+
+<button type="submit">
+Record Payment
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

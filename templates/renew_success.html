@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Renewal Successful</title>
+
+
+<style>
+
+    body{
+        font-family: Arial, sans-serif;
+        background:#f4f6f9;
+        margin:0;
+        padding:30px;
+    }
+
+    .container{
+        width:1000px;
+        margin:auto;
+        background:white;
+        border-radius:12px;
+        box-shadow:0px 0px 15px rgba(0,0,0,0.15);
+        overflow:hidden;
+    }
+
+    .header{
+        background:#003366;
+        color:white;
+        text-align:center;
+        padding:20px;
+    }
+
+    .header h1{
+        margin:0;
+        font-size:42px;
+    }
+
+    .header h2{
+        margin-top:8px;
+        font-size:22px;
+        font-weight:normal;
+    }
+
+    .content{
+        padding:30px;
+    }
+
+    .success{
+        color:green;
+        text-align:center;
+        font-size:36px;
+        margin-bottom:25px;
+    }
+
+    .details p{
+        font-size:20px;
+        margin:15px 0;
+    }
+
+    .receipt{
+        margin-top:30px;
+        border:2px solid #ddd;
+        border-radius:10px;
+        padding:20px;
+        background:#fafafa;
+    }
+
+    .receipt h2{
+        color:#003366;
+        margin-top:0;
+    }
+
+    .buttons{
+        text-align:center;
+        padding:25px;
+    }
+
+    .pdf-btn{
+        background:#007bff;
+        color:white;
+        text-decoration:none;
+        padding:12px 25px;
+        border-radius:8px;
+        font-size:18px;
+        font-weight:bold;
+        margin-right:15px;
+    }
+
+    .pdf-btn:hover{
+        background:#0056b3;
+    }
+
+    .home-btn{
+        background:#28a745;
+        color:white;
+        text-decoration:none;
+        padding:12px 25px;
+        border-radius:8px;
+        font-size:18px;
+        font-weight:bold;
+    }
+
+    .home-btn:hover{
+        background:#1e7e34;
+    }
+
+</style>
+
+
+</head>
+
+<body>
+
+<div class="container">
+
+```
+<div class="header">
+    <h1>CLIMAX LIBRARY</h1>
+    <h2>Membership Renewal Slip</h2>
+</div>
+
+<div class="content">
+
+    <div class="success">
+        ✔ Renewal Successful
+    </div>
+
+    <div class="details">
+
+        <p><b>Roll Number:</b> {{ student['roll_no'] }}</p>
+
+        <p><b>Name:</b> {{ student['name'] }}</p>
+
+        <p><b>Seat Number:</b> {{ student['seat_no'] }}</p>
+
+        <p><b>Shift:</b> {{ student['shift'] }}</p>
+
+        <p>
+    <b>Old Expiry Date:</b>
+    {{ old_expiry | indian_date }}
+</p>
+
+<p>
+    <b>New Expiry Date:</b>
+    {{ new_expiry | indian_date }}
+</p>
+        <p><b>Renewal Fee:</b> ₹{{ fee }}</p>
+
+    </div>
+
+    <div class="receipt">
+
+        <h2>Payment Receipt</h2>
+
+        <p><b>Receipt Number:</b> {{ receipt_no }}</p>
+
+        <p><b>Amount Paid:</b> ₹{{ fee }}</p>
+
+        <p><b>Payment Mode:</b> {{ payment_mode }}</p>
+
+        <p><b>Payment Date:</b> {{ payment_date }}</p>
+
+    </div>
+
+</div>
+
+<div class="buttons">
+
+    <a href="/receipt/{{ receipt_no }}" class="pdf-btn">
+        📄 Download Receipt PDF
+    </a>
+
+    <a href="/" class="home-btn">
+        🏠 Dashboard
+    </a>
+
+</div>
+
+</div>
+
+</body>
+</html>

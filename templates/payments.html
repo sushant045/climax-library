@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Payment History</title>
+<style>
+    body{
+    font-family:Arial,sans-serif;
+    background:linear-gradient(
+        135deg,
+        #f8fafc,
+        #e2e8f0,
+        #cbd5e1
+    );
+    padding:20px;
+}
+
+.page-title{
+    text-align:center;
+    color:#003366;
+    font-family:Algerian;
+    font-size:50px;
+    margin-bottom:30px;
+}
+
+.table-container{
+    width:95%;
+    margin:auto;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0px 4px 15px rgba(0,0,0,0.15);
+    overflow-x:auto;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#003366;
+    color:white;
+    padding:14px;
+    font-size:18px;
+}
+
+td{
+    padding:12px;
+    border-bottom:1px solid #ddd;
+    text-align:center;
+}
+
+tr:nth-child(even){
+    background:#f5f8fc;
+}
+
+tr:hover{
+    background:#eaf2ff;
+}
+.dashboard-btn{
+    background:#28a745;
+    color:white;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.dashboard-btn:hover{
+    background:#218838;
+}
+</style>
+</head>
+
+<body>
+
+<h1 class="page-title">
+    💳 Payment History
+</h1>
+<div style="text-align:center;margin-bottom:20px;">
+
+    <a href="/"
+       class="dashboard-btn">
+       🏠 Dashboard
+    </a>
+
+</div>
+
+<table border="1">
+
+<tr>
+    <th>Receipt</th>
+    <th>Roll No</th>
+    <th>Amount</th>
+    <th>Date</th>
+    <th>Mode</th>
+</tr>
+
+{% for payment in payments %}
+
+<tr>
+
+<td>{{ payment['receipt_no'] }}</td>
+<td>{{ payment['roll_no'] }}</td>
+<td>₹{{ payment['amount'] }}</td>
+<td>{{ payment['payment_date'] }}</td>
+<td>{{ payment['payment_mode'] }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>

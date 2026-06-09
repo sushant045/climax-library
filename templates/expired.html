@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expired Students</title>
+
+</head>
+<body>
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f9;
+    margin:0;
+}
+
+.container{
+    width:1100px;
+    margin:30px auto;
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(0,0,0,0.1);
+}
+
+.header{
+    background:#003366;
+    color:white;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.nav a{
+    text-decoration:none;
+    margin-right:20px;
+    font-weight:bold;
+    color:#003366;
+}
+
+.stats{
+    width:250px;
+    background:#ffebee;
+    padding:15px;
+    border-radius:10px;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.stats h2{
+    color:red;
+    margin:0;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#1976d2;
+    color:white;
+    padding:12px;
+}
+
+td{
+    padding:10px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+
+tr:nth-child(even){
+    background:#f9f9f9;
+}
+
+tr:hover{
+    background:#eef5ff;
+}
+
+.renew-btn{
+    background:green;
+    color:white;
+    text-decoration:none;
+    padding:8px 16px;
+    border-radius:5px;
+    font-weight:bold;
+}
+
+.renew-btn:hover{
+    background:darkgreen;
+}
+.nav-links{
+    margin-left:30px;
+    margin-top:20px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    background:#0d6efd;
+    padding:8px 16px;
+    border-radius:6px;
+    margin-right:10px;
+    font-weight:bold;
+}
+
+.nav-links a:hover{
+    background:#0b5ed7;
+}
+</style>
+<div class="header">
+    <h1>Expired Memberships</h1>
+</div>
+
+<div class="nav-links">
+
+    <a href="/">🏠 Dashboard</a>
+
+    <a href="/students">👥 All Students</a>
+
+</div>
+
+<br><br>
+<div class="stats">
+    <h2>{{ students|length }}</h2>
+    <p>Total Expired Members</p>
+</div>
+
+<table border="1">
+
+<tr>
+    <th>Roll No</th>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Seat</th>
+    <th>Shift</th>
+    <th>Expiry Date</th>
+    <th>Action</th>
+    <th>WhatsApp</th>
+</tr>
+
+{% for student in students %}
+
+<tr>
+
+    <td>{{ student['roll_no'] }}</td>
+    <td>{{ student['name'] }}</td>
+    <td>{{ student['phone'] }}</td>
+    <td>{{ student['seat_no'] }}</td>
+    <td>{{ student['shift'] }}</td>
+    <td>
+    {{ student['expiry_date'] | indian_date }}
+</td>
+
+    <td>
+    <a
+    href="/renew/{{ student['roll_no'] }}"
+    class="renew-btn">
+    🔄 Renew
+    </a>
+    </td>
+    <td>
+    <a href="/whatsapp/{{ student['roll_no'] }}"
+    style="
+      background:#25D366;
+      color:white;
+      padding:6px 12px;
+      border-radius:5px;
+      text-decoration:none;
+      font-weight:bold;
+   ">
+   📱 WhatsApp
+    </a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>

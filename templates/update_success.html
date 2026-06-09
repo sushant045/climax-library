@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Updated</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:'Segoe UI',sans-serif;
+    }
+
+    body{
+        min-height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background:linear-gradient(135deg,#667eea,#764ba2);
+    }
+
+    .success-card{
+        background:white;
+        padding:40px;
+        border-radius:20px;
+        text-align:center;
+        width:450px;
+        box-shadow:0 15px 35px rgba(0,0,0,0.2);
+    }
+
+    .success-icon{
+        font-size:70px;
+        color:#28a745;
+        margin-bottom:15px;
+    }
+
+    h1{
+        color:#333;
+        margin-bottom:10px;
+    }
+
+    p{
+        color:#666;
+        margin-bottom:25px;
+    }
+
+    .btn{
+        display:inline-block;
+        padding:12px 25px;
+        background:#667eea;
+        color:white;
+        text-decoration:none;
+        border-radius:10px;
+        font-weight:600;
+        transition:0.3s;
+    }
+
+    .btn:hover{
+        background:#5563d6;
+        transform:translateY(-2px);
+    }
+</style>
+</head>
+
+<body>
+
+<div class="success-card">
+    <div class="success-icon">✅</div>
+
+    <h1>Student Updated Successfully</h1>
+
+    <p>The student information has been updated successfully.</p>
+
+    <a href="/students" class="btn">
+        Back To Students
+    </a>
+</div>
+
+</body>
+</html>
